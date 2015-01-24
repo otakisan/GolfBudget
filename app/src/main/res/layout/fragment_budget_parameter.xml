@@ -4,9 +4,127 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity$PlaceholderFragment">
+    tools:context=".BudgetParameterFragment">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/budget"
+        android:id="@+id/budgetTextView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp" />
+
+    <EditText
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/budgetEditText"
+        android:layout_marginStart="10dp"
+        android:layout_alignBottom="@+id/budgetTextView"
+        android:layout_toEndOf="@+id/budgetTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/golfers"
+        android:id="@+id/golfersTextView"
+        android:layout_alignTop="@+id/budgetTextView"
+        android:layout_toEndOf="@+id/budgetEditText"
+        android:layout_marginStart="25dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/golfersEditText"
+        android:maxLength="2"
+        android:width="60dp"
+        android:layout_alignBottom="@+id/golfersTextView"
+        android:layout_toEndOf="@+id/golfersTextView"
+        android:layout_marginStart="13dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/closest"
+        android:id="@+id/closestTextView"
+        android:layout_below="@+id/budgetTextView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="21dp" />
+
+    <EditText
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/closestEditText"
+        android:layout_alignBottom="@+id/closestTextView"
+        android:layout_alignStart="@+id/budgetEditText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/longest"
+        android:id="@+id/longestTextView"
+        android:layout_alignTop="@+id/closestTextView"
+        android:layout_alignStart="@+id/golfersTextView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/longestEditText"
+        android:maxLength="2"
+        android:width="60dp"
+        android:layout_alignBottom="@+id/longestTextView"
+        android:layout_alignStart="@+id/golfersEditText" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lowest"
+        android:id="@+id/lowestSwitch"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/closestTextView"
+        android:layout_alignParentStart="true" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/booby"
+        android:id="@+id/boobySwitch"
+        android:layout_above="@+id/trophySwitch"
+        android:layout_alignStart="@+id/longestTextView" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/trophy"
+        android:id="@+id/trophySwitch"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/lowestSwitch"
+        android:layout_alignParentStart="true" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ceremony"
+        android:id="@+id/ceremonySwitch"
+        android:layout_alignTop="@+id/trophySwitch"
+        android:layout_alignStart="@+id/boobySwitch" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calc"
+        android:id="@+id/calc_button"
+        android:layout_below="@+id/trophySwitch"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="24dp"
+        android:onClick="onCalcButtonClicked" />
 
 </RelativeLayout>

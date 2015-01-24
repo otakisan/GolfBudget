@@ -3,6 +3,17 @@
 
     <string name="app_name">GolfBudget</string>
     <string name="hello_world">Hello world!</string>
+    <string name="budget">Budget</string>
+    <string name="golfers">People</string>
+    <string name="closest">Closest</string>
+    <string name="longest">Longest</string>
+    <string name="lowest">Lowest</string>
+    <string name="booby">Booby</string>
+    <string name="trophy">Trophy</string>
+    <string name="ceremony">Ceremony</string>
+    <string name="calc">Calc</string>
+    <string name="calcButtonClicked">onCalcButtonClicked</string>
     <string name="action_settings">Settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
