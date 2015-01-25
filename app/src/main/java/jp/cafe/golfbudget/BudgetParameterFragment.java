@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -77,7 +79,43 @@ public class BudgetParameterFragment extends Fragment {
 //            mListener.onFragmentInteraction(uri);
 //        }
 
-        Toast.makeText(getActivity(), "hoge!", Toast.LENGTH_SHORT).show();
+        try {
+            // 予算画面を表示
+            this.moveToBudget(this.calcBudget());
+
+        } catch (Exception ex){
+            Toast.makeText(getActivity(), ex.toString(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private Budget calcBudget(){
+
+        // 予算を計算
+        Budget budget = new BudgetCalculator().calculate(this.getBudgetParameter());
+
+        return budget;
+    }
+
+    private BudgetParameter getBudgetParameter() {
+        // 画面のパラメータを取得
+        BudgetParameter budgetParameter = new BudgetParameter();
+
+        String amount = ((EditText)this.getActivity().findViewById(R.id.budgetEditText)).getText().toString();
+        budgetParameter.budgetTotalAmount = Integer.parseInt(amount);
+        budgetParameter.golfers = Integer.parseInt(((EditText)this.getActivity().findViewById(R.id.golfersEditText)).getText().toString());
+        budgetParameter.closest = Integer.parseInt(((EditText)this.getActivity().findViewById(R.id.closestEditText)).getText().toString());
+        budgetParameter.longest = Integer.parseInt(((EditText) this.getActivity().findViewById(R.id.longestEditText)).getText().toString());
+
+        budgetParameter.lowest = ((Switch)this.getActivity().findViewById(R.id.lowestSwitch)).isChecked();
+        budgetParameter.booby = ((Switch)this.getActivity().findViewById(R.id.boobySwitch)).isChecked();
+        budgetParameter.trophy = ((Switch)this.getActivity().findViewById(R.id.trophySwitch)).isChecked();
+        budgetParameter.celemony = ((Switch)this.getActivity().findViewById(R.id.ceremonySwitch)).isChecked();
+
+        return budgetParameter;
+    }
+
+    public void moveToBudget(Budget budget){
+        ((MainActivity)this.getActivity()).moveToBudget(budget);
     }
 
     @Override

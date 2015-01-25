@@ -3,6 +3,7 @@ package jp.cafe.golfbudget;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,6 +19,12 @@ public class MainActivity extends Activity implements BudgetParameterFragment.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // UncaughtExceptionHandlerを実装したクラスをセットする。
+        BudgetUncaughtExceptionHandler customUncaughtExceptionHandler = new BudgetUncaughtExceptionHandler(
+                getApplicationContext());
+        Thread.setDefaultUncaughtExceptionHandler(customUncaughtExceptionHandler);
+
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
@@ -54,6 +61,11 @@ public class MainActivity extends Activity implements BudgetParameterFragment.On
 
     }
 
+    public void moveToBudget(Budget budget){
+        Intent intent = new Intent(this, BudgetActivity.class);
+        intent.putExtra(this.getString(R.string.intent_budget), budget);
+        startActivity(intent);
+    }
     /**
      * A placeholder fragment containing a simple view.
      */
